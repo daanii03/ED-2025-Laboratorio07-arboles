@@ -15,16 +15,16 @@
 
 - [Ejercicios de Árboles](#ejercicios-de-%C3%A1rboles)
         - [Información del Proyecto](#informaci%C3%B3n-del-proyecto)
-- [Ejercicio 1: ejercicios básicos con árboles binarios](#ejercicio-1-ejercicios-b%C3%A1sicos-con-%C3%A1rboles-binarios)
+- [Ejercicio 1: operaciones simples sobre árboles binarios](#ejercicio-1-operaciones-simples-sobre-%C3%A1rboles-binarios)
     - [Ejercicio 1.0: crear el árbol binario](#ejercicio-10-crear-el-%C3%A1rbol-binario)
     - [Ejercicio 1.1: in-order inverso](#ejercicio-11-in-order-inverso)
-    - [Ejercicio 1.2: profundidad maxima](#ejercicio-12-profundidad-máxima)
+    - [Ejercicio 1.2: profundidad máxima](#ejercicio-12-profundidad-m%C3%A1xima)
     - [Ejercicio 1.3: contar nodos](#ejercicio-13-contar-nodos)
     - [Ejercicio 1.4: contar hojas](#ejercicio-14-contar-hojas)
     - [Ejercicio 1.5: contar nodos internos](#ejercicio-15-contar-nodos-internos)
     - [Ejercicio 1.6: es completo](#ejercicio-16-es-completo)
-    - [Ejercicio 1.7: el mayor valor de una  hoja](#ejercicio-17-el-mayor-valor-de-una--hoja)
-    - [Ejercicio 1.8: suma el valor de las hojas](#ejercicio-18-suma-el-valor-de-las-hojas)
+    - [Ejercicio 1.7: el mayor valor de una hoja](#ejercicio-17-el-mayor-valor-de-una-hoja)
+    - [Ejercicio 1.8: suma del valor de las hojas](#ejercicio-18-suma-del-valor-de-las-hojas)
     - [Ejercicio 1.9: cuenta número de nodos pares](#ejercicio-19-cuenta-n%C3%BAmero-de-nodos-pares)
     - [Ejercicio 1.10: contar nodos en un nivel](#ejercicio-110-contar-nodos-en-un-nivel)
 
@@ -96,4 +96,4 @@ Implementar una función que devuelva la suma de los valores de las hojas de un 
 Implementar una función que cuente el número de nodos pares de un árbol binario. Un nodo es par si su valor es par. La función debe devolver el número total de nodos pares del árbol.
 
 ## Ejercicio 1.10: contar nodos en un nivel
-Implementar una función que cuente el número de nodos en un nivel determinado de un árbol binario. La raíz del árbol se considera el nivel 1. Los hijos inmediatos de la raíz nivel 2, etc.
+Implementar una función que cuente el número de nodos en un nivel determinado de un árbol binario. La raíz del árbol se considera el nivel 0. Los hijos inmediatos de la raíz nivel 1, etc.
