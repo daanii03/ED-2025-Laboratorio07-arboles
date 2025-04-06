@@ -23,10 +23,6 @@ interface
   procedure inorder(a: tbinaryTree);
   procedure postorder(a: tbinaryTree);
 
-  // Other methods
-  function get_hi(a:tbinaryTree): tbinaryTree;
-  function get_hd(a:tbinaryTree): tbinaryTree;
-
   // Ejercicios 
 
   {Ejercicio 1.1}
@@ -130,19 +126,6 @@ begin
     postorder(a^.hd);
     visit(a^.info);
   end
-end;
-
-
-function get_hi(a:tbinaryTree): tbinaryTree;
-begin
-  if a = nil then get_hi := nil
-  else get_hi:= a^.hi;
-end;
-
-function get_hd(a:tbinaryTree): tbinaryTree;
-begin
-  if a = nil then get_hd := nil
-  else get_hd:= a^.hd;
 end;
 
 { ---------------Ejercicio 1.1------------------ }
