@@ -15,6 +15,12 @@ var
 procedure crear_arbol(var a: tbinaryTree);
 begin
     initialize(a);
+    add(a, 5);
+    add(a, 3);
+    add(a, 8);
+    add(a, 1);
+    add(a, 4);
+    add(a, 9);
 end;
 
 // Vamos a crear el siguiente árbol binario:
@@ -28,6 +34,15 @@ end;
 procedure crear_arbol2(var a: tbinaryTree);
 begin
     initialize(a);
+    add(a, 10);
+    add(a, 5);
+    add(a, 20);
+    add(a, 3);
+    add(a, 8);
+    add(a, 15);
+    add(a, 25);
+    add(a, 1);
+    add(a, 4);
 end;
 
 
