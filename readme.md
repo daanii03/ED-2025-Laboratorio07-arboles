@@ -146,7 +146,7 @@ Para realizar este ejercicio, utilizaremos los siguientes ficheros:
 
 - `uPilaChar.pas`: Unidad que contiene la implementación de una pila de caracteres con las operaciones básicas como `push`, `pop`, `peek`, y otras funciones auxiliares.
 - `uBinaryCharSearchTree.pas`: Unidad que contiene la implementación de un árbol binario de búsqueda con caracteres como información en los nodos. Incluye métodos básicos como `add`, `remove`, y recorridos del árbol.
-- `arboles_ej3.pas`: Programa principal que ejecutaremos para comprobar que hemos implementado correctamente el procedimiento de ordenación de la pila.
+- `arboles_ej3.pas`: Programa principal en el que debemos implementar el ejercicio. Este programa lo ejecutaremos para comprobar que hemos implementado correctamente el procedimiento `mostrar_pila_en_orden`.
 
 Queremos que implementes un procedimiento llamado `mostrar_pila_en_orden` que realice lo solicitado.
 
@@ -154,7 +154,7 @@ Queremos que implementes un procedimiento llamado `mostrar_pila_en_orden` que re
 
 1. Modifica `uBinaryCharSearchTree.pas` para que almacene caracteres en los nodos del árbol binario de búsqueda. Asegúrate de que el árbol pueda manejar correctamente la inserción y eliminación de caracteres.
 
-2. Crea un procedimiento `mostrar_pila_en_orden` en `uBinaryCharSearchTree.pas` que realice lo siguiente:
+2. Crea un procedimiento `mostrar_pila_en_orden` en `arboles_ej3.pas` que realice lo siguiente:
    - **Crear un árbol binario de búsqueda**: Inicializar un árbol binario de búsqueda vacío.
    - **Desapilar los elementos de la pila**: Extraer los elementos de la pila uno por uno y añadirlos al árbol binario de búsqueda utilizando el método `add`.
    - **Recorrer el árbol**: Realizar un recorrido del árbol binario de búsqueda para obtener los elementos en orden ascendente. Durante este recorrido, muestra los elementos por pantalla.

@@ -28,9 +28,6 @@ type
   procedure get_hd(a: tBinarySearchTree; var b: tBinarySearchTree);
   procedure clear(var a: tBinarySearchTree);
 
-  { Ejercicio 3 Ordenadr una pila }
-  procedure ordenar_pila(var p: tPilaChars);
-
 implementation
 
 uses
@@ -192,13 +189,5 @@ begin
     dispose(a);
   end;
 end;
-
-{ Ejercicio 3: Ordenar una pila }
-
-procedure anadir_pila(a: tBinarySearchTree; var p: tPilaChars);
-begin
-writeln('NO IMPLEMENTADO');
-end;
-
 
 end.

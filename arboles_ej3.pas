@@ -7,12 +7,18 @@ var
   pila: tPilaChars;
   elemento: char;
 
+{ Ejercicio 3 }
+procedure mostrar_pila_en_orden(var p: tPilaChars);
+begin
+  writeln('No implementado');
+end;
+
+
 begin
   // Inicializar la pila
   uPilaChar.initialize(pila);
 
   // Agregar elementos desordenados a la pila
-  writeln('Agregando elementos desordenados a la pila...');
   push(pila, 'd');
   push(pila, 'a');
   push(pila, 'c');
@@ -21,11 +27,8 @@ begin
   // Mostrar pila antes de ordenar
   writeln('Pila antes de ordenar: ', toString(pila));
 
-  // Ordenar la pila
-  ordenar_pila(pila);
+  mostrar_pila_en_orden(pila);
 
   // Mostrar pila después de ordenar
   writeln('Pila después de ordenar: ', toString(pila));
-
-  writeln('Peek del tope de la pila: ', peek(pila));
 end.

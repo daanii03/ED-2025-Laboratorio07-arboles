@@ -7,7 +7,6 @@ var
     tree: tTreeMap;
     lista: tListaSimple;
     key: integer;
-    value: string;
 
 begin
     // Inicializar el árbol
@@ -16,76 +15,75 @@ begin
 
     // Comprobar si el árbol está vacío
     if uTreeMap.is_empty(tree) then
-    writeln('El árbol está vacío.')
+        writeln('El árbol está vacío.')
     else
-    writeln('El árbol no está vacío.');
+        writeln('El árbol no está vacío.');
 
     // Insertar elementos en el árbol
     writeln('Insertando elementos...');
-    add(tree, 10, 'Valor10');
-    add(tree, 5, 'Valor5');
-    add(tree, 15, 'Valor15');
-    add(tree, 3, 'Valor3');
-    add(tree, 7, 'Valor7');
+    add(tree, 'hola');  // Clave 4
+    add(tree, 'casa');  // Clave 4
+    add(tree, 'adios'); // Clave 5
+    add(tree, 'sol');   // Clave 3
+    add(tree, 'luz');   // Clave 3
     writeln('Elementos insertados.');
 
-        // Recorridos del árbol
+    // Recorridos del árbol
     writeln('Recorrido en inorden:');
     inorder(tree);
 
     // Comprobar si una clave está en el árbol
-    key := 7;
+    key := 4;
     if contains(tree, key) then
-    writeln('La clave ', key, ' está en el árbol.')
+        writeln('La clave ', key, ' está en el árbol.')
     else
-    writeln('La clave ', key, ' no está en el árbol.');
+        writeln('La clave ', key, ' no está en el árbol.');
 
-    // Añadimos más valores a la clave 7
-    add(tree, 7, 'Valor7_1');
-    add(tree, 7, 'Valor7_2');
-    add(tree, 7, 'Valor7_3');
-    writeln('Valores asociados a la clave 7:');
-    get(tree, 7, lista);
+    // Obtener los valores asociados a una clave
+    get(tree, 4, lista);
+    writeln('Valores asociados a la clave 4:');
     writeln('    ', uListaEnlazadaSimple.to_string(lista));
 
-    // Eliminamos todos los valores asociados a la clave 7 y comprobamos que se elimina la clave
-    writeln('Eliminando valores asociados a la clave 7...');
-    remove_value(tree, 7, 'Valor7_1');
-    remove_value(tree, 7, 'Valor7_2');
-    remove_value(tree, 7, 'Valor7_3');    
-    remove_value(tree, 7, 'Valor7');
-    if contains(tree, 7) then
-    writeln('La clave 7 no se ha eliminado del árbol.')
-    else
-    writeln('La clave 7 se ha eliminado del árbol.');
-
-
-
-    // Obtener el valor asociado a una clave
-    key := 10;
-    get(tree, key, lista);
-    writeln('Valores asociados a la clave ', key, ':');
+    // Añadir más valores a una clave existente
+    add(tree, 'hola'); // Clave 4
+    writeln('Valores asociados a la clave 4 después de añadir "hola" nuevamente:');
+    get(tree, 4, lista);
     writeln('    ', uListaEnlazadaSimple.to_string(lista));
 
+    // Eliminar un valor específico de una clave
+    writeln('Eliminando el valor "casa" de la clave 4...');
+    remove_value(tree, 'casa');
+    get(tree, 4, lista);
+    writeln('Valores asociados a la clave 4 después de eliminar "casa":');
+    writeln('    ', uListaEnlazadaSimple.to_string(lista));
 
-
-    // Eliminar un nodo del árbol
-    writeln('Eliminando la clave 5...');
-    remove(tree, 5);
-    if contains(tree, 5) then
-    writeln('La clave no se ha eliminado del árbol.')
+    // Eliminar todos los valores de una clave
+    writeln('Eliminando todos los valores de la clave 4...');
+    remove_value(tree, 'hola');
+    remove_value(tree, 'hola'); // Segunda ocurrencia de "hola"
+    get(tree, 4, lista);
+    if contains(tree, 4) then
+        writeln('La clave 4 no se ha eliminado del árbol.')
     else
-    writeln('La clave 5 se ha eliminado del árbol.');
+        writeln('La clave 4 se ha eliminado del árbol.');
 
-    // Recorrido en inorden después de la eliminación
-    writeln('Recorrido en inorden después de la eliminación:');
+    // Eliminar un nodo completo
+    writeln('Eliminando la clave 3...');
+    remove(tree, 3);
+    if contains(tree, 3) then
+        writeln('La clave 3 no se ha eliminado del árbol.')
+    else
+        writeln('La clave 3 se ha eliminado del árbol.');
+
+    // Recorrido en inorden después de las eliminaciones
+    writeln('Recorrido en inorden después de las eliminaciones:');
     inorder(tree);
 
     // Comprobar si el árbol está vacío
     if uTreeMap.is_empty(tree) then
-    writeln('El árbol está vacío.')
+        writeln('El árbol está vacío.')
     else
-    writeln('El árbol no está vacío.');
+        writeln('El árbol no está vacío.');
 
     writeln('Programa finalizado.');
 end.
