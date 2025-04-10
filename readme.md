@@ -127,7 +127,6 @@ Implementar una función que determine si todos los niveles de un árbol binario
 
 Implementar un procedimiento que añada todos los nodos de un árbol binario de búsqueda `b` a otro árbol binario de búsqueda `a`. Los nodos de `b` deben añadirse a `a` siguiendo un recorrido preorden.
 
-
 ## Ejercicio 2.4: multiplicidad de claves
 
 Modifica el árbol binario para que cada nodo puede tener una multiplicidad asociada. La multiplicidad indica cuántas veces aparece una clave en el árbol.
@@ -139,9 +138,9 @@ Para ello, deberás hacer lo siguiente:
 4. Nuevo método para obtener la multiplicidad de un nodo: Implementar una función que devuelva la multiplicidad de un nodo dado en el árbol binario de búsqueda. Si la clave no está presente en el árbol, la función debe devolver 0.
 
 
-# Ejercicio 3: Ordenar una pila utilizando un árbol binario de búsqueda
+# Ejercicio 3: Mostrar los elementos de una pila en orden, utilizando para ello un árbol binario de búsqueda
 
-En este ejercicio, vamos a implementar un procedimiento que permita ordenar una pila de caracteres utilizando un árbol binario de búsqueda. Este ejercicio combina el uso de estructuras de datos como pilas y árboles binarios de búsqueda para resolver un problema práctico.
+En este ejercicio, vamos a implementar un procedimiento que permita mostrar por pantalla los elementos de una pila de caracteres utilizando como apoyo un árbol binario de búsqueda. Este ejercicio combina el uso de estructuras de datos como pilas y árboles binarios de búsqueda para resolver un problema práctico.
 
 Para realizar este ejercicio, utilizaremos los siguientes ficheros:
 
@@ -149,31 +148,28 @@ Para realizar este ejercicio, utilizaremos los siguientes ficheros:
 - `uBinaryCharSearchTree.pas`: Unidad que contiene la implementación de un árbol binario de búsqueda con caracteres como información en los nodos. Incluye métodos básicos como `add`, `remove`, y recorridos del árbol.
 - `arboles_ej3.pas`: Programa principal que ejecutaremos para comprobar que hemos implementado correctamente el procedimiento de ordenación de la pila.
 
-El objetivo es implementar un procedimiento llamado `ordenar_pila` que ordene los elementos de una pila de caracteres en orden ascendente utilizando un árbol binario de búsqueda como estructura auxiliar.
+Queremos que implementes un procedimiento llamado `mostrar_pila_en_orden` que realice lo solicitado.
 
 **Pasos a realizar**
 
 1. Modifica `uBinaryCharSearchTree.pas` para que almacene caracteres en los nodos del árbol binario de búsqueda. Asegúrate de que el árbol pueda manejar correctamente la inserción y eliminación de caracteres.
 
-2. Crea un procedimiento `ordenar_pila` en `uBinaryCharSearchTree.pas` que realice lo siguiente:
+2. Crea un procedimiento `mostrar_pila_en_orden` en `uBinaryCharSearchTree.pas` que realice lo siguiente:
    - **Crear un árbol binario de búsqueda**: Inicializar un árbol binario de búsqueda vacío.
    - **Desapilar los elementos de la pila**: Extraer los elementos de la pila uno por uno y añadirlos al árbol binario de búsqueda utilizando el método `add`.
-   - **Recorrer el árbol en orden**: Realizar un recorrido in-orden del árbol binario de búsqueda para obtener los elementos en orden ascendente. Durante este recorrido, volver a apilar los elementos en la pila. Para ello, deberás implementar un procedimiento auxiliar que recorra el árbol y apile los elementos en el orden correcto.
-3. **Reapilar los elementos**: Una vez que el recorrido in-orden ha terminado, la pila contendrá los elementos en orden ascendente.
-
+   - **Recorrer el árbol**: Realizar un recorrido del árbol binario de búsqueda para obtener los elementos en orden ascendente. Durante este recorrido, muestra los elementos por pantalla.
+   - IMPORTANTE: No debes modificar la pila original por lo que deberás hacer uso de alguna estructura auxiliar que te ayude en la tarea
+   
 **Ejemplo de ejecución**:
 
 Supongamos que la pila inicial contiene los elementos: `d`, `a`, `c`, `b` (en este orden, con `d` en la cima).
 
-1. Antes de ordenar: `d a c b`
-2. Después de ordenar: `a b c d`
-
-El programa principal debe mostrar estos resultados para verificar que el procedimiento funciona correctamente.
+El programa principal debe mostrar `a b c d` y al final del proceso la pila debe contener los mismos elementos que tenía al inicio y en el mismo orden.
 
 
 # Ejercicio 4: TreeMap
 
-En este ejercicio, vamos a implementar un árbol binario de búsqueda que almacene pares clave-valor. La clave será un número entero y el valor será una lista de palabras. 
+En este ejercicio vamos a implementar un árbol binario de búsqueda que almacene pares clave-valor. La clave será un número entero y el valor será una lista de palabras. Lo vamos a probar añadiendo palabras, por ejemplo "Mostoles", de forma que la clave será el número de caracteres de la palabra. En nuestro ejemplo "Móstoles" tiene 8 caracteres y en consecuencia su clave será 8.
 
 Para realizar este ejercicio, utilizaremos los siguientes ficheros:
 - `uTreeMap.pas`: unidad que contiene la definición del árbol binario de búsqueda. Deberemos implementar los métodos en esta unidad.
@@ -196,12 +192,12 @@ type
   end;
 ```
 
-2. **`procedure add(var a: tTreeMap; key: integer; value: string);`**: Añade un par clave-valor al árbol. Si la clave ya existe, el valor se añade a la lista asociada a esa clave. Si la clave no existe, se crea un nuevo nodo con la clave y el valor. Puede haber valores duplicados en la lista asociada a una clave. Por ejemplo, si se añade la clave `5` con el valor `"hola"` y luego se añade nuevamente la clave `5` con el valor `"mundo"`, el árbol tendrá un nodo con la clave `5` y una lista que contiene `"hola"` y `"mundo"`.
+2. **`procedure add(var a: tTreeMap; value: string);`**: Añade un par clave-valor al árbol. Si la clave ya existe, el valor se añade a la lista asociada a esa clave. Si la clave no existe, se crea un nuevo nodo con la clave y el valor. Puede haber valores duplicados en la lista asociada a una clave. Por ejemplo, si se añade la palabra `"hola"` (clave 4) y luego se añade la palabra `"casa"` (también clave 4), el árbol tendrá un nodo con la clave `4` y una lista que contiene `"hola"` y `"casa"`.
 
 3. **`procedure get(a: tTreeMap; key: integer; var value: tListaSimple);`**: Recupera la lista de palabras asociada a una clave específica. Si la clave no existe, la lista devuelta estará vacía.
 
 4. **`function contains(a: tTreeMap; key: integer): boolean;`**: Comprueba si una clave específica existe en el árbol. Devuelve `true` si la clave está presente y `false` en caso contrario.
 
-5. **`procedure remove(var a: tTreeMap; x: integer);`**: Elimina un nodo del árbol basado en la clave proporcionada. Si la clave no existe, no se realiza ninguna acción. Si la clave existe y tiene una lista asociada, se eliminará la lista  completamente.
+5. **`procedure remove(var a: tTreeMap; key: integer);`**: Elimina un nodo del árbol a partir de la clave proporcionada. Si la clave no existe, no se realiza ninguna acción. Si la clave existe y tiene una lista asociada, se eliminará la lista  completamente.
 
-6. **`procedure remove_value(var a: tTreeMap; x: integer; value: string);`**: Elimina un valor específico de la lista asociada a una clave. Si la lista queda vacía después de eliminar el valor, el nodo correspondiente también se elimina del árbol.
+6. **`procedure remove_value(var a: tTreeMap; value: string);`**: Elimina una palabra del árbol. Como dicha palabra estará en la lista asociada a una clave, concretamente a la clave numérica que corresponde al número de caracteres de la palabra, habrá que eliminarla de la lista correspondiente a dicha clave. Si la lista queda vacía después de eliminar la palabra, se deberá eliminar el nodo correspondiente del árbol.
