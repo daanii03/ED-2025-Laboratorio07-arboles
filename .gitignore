@@ -11,6 +11,8 @@
 *.o
 *.ko
 *.ppu
+*.lpi
+*.lps
 
 # Ignore executables
 *.exe
@@ -20,5 +22,7 @@
 # Ignore without extension
 .DS_Store
 Thumbs.db
-
+#Ignore folders
+backup/
+lib/x86_64-win64
 
