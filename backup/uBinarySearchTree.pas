@@ -120,11 +120,7 @@ begin
               dispose(aux);
          end
          else
-         begin
              a^.multiplicidad:= a^.multiplicidad-1;
-             if a^.multiplicidad = 0 then
-                remove(a,x);
-         end;
     end;
 end;
 

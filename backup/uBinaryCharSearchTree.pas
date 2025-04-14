@@ -5,16 +5,16 @@ interface
 type
   tBinarySearchTree = ^tnode;
   tnode = record
-    info: char;
+    info: integer;
     hi, hd: tBinarySearchTree;
   end;
 
   // Basic methods
   procedure initialize(var a: tBinarySearchTree);
   function is_empty(a: tBinarySearchTree): boolean;
-  procedure add(var a: tBinarySearchTree; clave: char);
-  function in_tree(a: tBinarySearchTree; clave: char): boolean;
-  procedure remove(var a: tBinarySearchTree; x: char);
+  procedure add(var a: tBinarySearchTree; clave: integer);
+  function in_tree(a: tBinarySearchTree; clave: integer): boolean;
+  procedure remove(var a: tBinarySearchTree; x: integer);
 
 
 
@@ -43,7 +43,7 @@ begin
   is_empty := a = NIL;
 end;
 
-function in_tree(a: tBinarySearchTree; clave: char): boolean;
+function in_tree(a: tBinarySearchTree; clave: integer): boolean;
 begin
   if a = NIL then
     in_tree := FALSE
@@ -55,7 +55,7 @@ begin
     in_tree := TRUE;
 end;
 
-procedure add(var a: tBinarySearchTree; clave: char);
+procedure add(var a: tBinarySearchTree; clave: integer);
 begin
   if a = NIL then
   begin
@@ -70,7 +70,7 @@ begin
     add(a^.hi, clave);
 end;
 
-procedure remove(var a: tBinarySearchTree; x: char);
+procedure remove(var a: tBinarySearchTree; x: integer);
 var
   aux, ant: tBinarySearchTree;
 begin
@@ -106,7 +106,7 @@ end;
 
 // Traversal algorithms
 
-procedure visit(x: char);
+procedure visit(x: integer);
 begin
   writeln(x);
 end;
@@ -143,7 +143,7 @@ end;
 
 // Other methods
 
-function get_info(a: tBinarySearchTree): char;
+function get_info(a: tBinarySearchTree): integer;
 begin
   get_info := a^.info;
 end;

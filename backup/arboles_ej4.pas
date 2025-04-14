@@ -61,7 +61,10 @@ begin
     // Eliminar todos los valores de una clave
     writeln('Eliminando todos los valores de la clave 4...');
     remove_value(tree, 'hola');
+    inorder(tree);
     remove_value(tree, 'hola'); // Segunda ocurrencia de "hola"
+    writeln('Eliminar hola 2');
+    inorder(tree);
     get(tree, 4, lista);
     if contains(tree, 4) then
         writeln('La clave 4 no se ha eliminado del árbol.')

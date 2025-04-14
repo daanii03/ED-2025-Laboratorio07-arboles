@@ -22,7 +22,7 @@ begin
    end;
    while not isEmpty(paux) do
    begin
-        push(p,peek(paux));
+        push(p);
         add(a,peek(paux));
         pop(paux);
    end;

@@ -5,7 +5,7 @@ interface
 type
   tBinarySearchTree = ^tnode;
   tnode = record
-    info,multiplicidad: integer;
+    info: integer;
     hi, hd: tBinarySearchTree;
   end;
 
@@ -24,11 +24,8 @@ type
   // Other methods
   procedure get_hi(a: tBinarySearchTree; var b: tBinarySearchTree);
   procedure get_hd(a: tBinarySearchTree; var b: tBinarySearchTree);
-  function mismos_nodos_izq_y_der(a: tBinarySearchTree):boolean;
-  function node_count(a:tBinarySearchTree): integer;
-  function niveles_completos(a:tBinarySearchTree):boolean;
-  procedure add_tree(var a:tBinarySearchTree; b:tBinarySearchTree);
-  function get_multiplicidad(a:tBinarySearchTree; clave: integer):integer;
+  function mismos_nodos_izq_y_der(a: tBinarySearchTree);
+  function node_count(a:tbinaryTree): integer;
 
 implementation
 
@@ -59,30 +56,17 @@ end;
 
 procedure add(var a: tBinarySearchTree; clave: integer);
 begin
-  if not in_tree(a,clave) then
-  begin
   if a = NIL then
   begin
     new(a);
     a^.info := clave;
     a^.hi := NIL;
     a^.hd := NIL;
-    a^.multiplicidad:= a^.multiplicidad +1;
   end
   else if a^.info < clave then
     add(a^.hd, clave)
   else if a^.info > clave then
     add(a^.hi, clave);
-  end
-  else
-  begin
-       if a^.info = clave then
-          a^.multiplicidad:= a^.multiplicidad +1
-       else if a^.info < clave then
-         add(a^.hd, clave)
-       else if a^.info > clave then
-         add(a^.hi, clave);
-  end;
 end;
 
 procedure remove(var a: tBinarySearchTree; x: integer);
@@ -96,35 +80,26 @@ begin
       remove(a^.hi, x)
     else
     begin
-         if a^.multiplicidad = 0 then
-         begin
-              aux := a;
-              if a^.hi = NIL then
-                 a := a^.hd
-              else if a^.hd = NIL then
-                 a := a^.hi
-              else
-              begin
-                   aux := a^.hi;
-                   while aux^.hd <> NIL do
-                   begin
-                       ant := aux;
-                       aux := aux^.hd;
-                   end;
-                   if a^.hi = aux then
-                      a^.hi := aux^.hi
-                   else
-                       ant^.hd := NIL;
-                   a^.info := aux^.info;
-              end;
-              dispose(aux);
-         end
-         else
-         begin
-             a^.multiplicidad:= a^.multiplicidad-1;
-             if a^.multiplicidad = 0 then
-                remove(a,x);
-         end;
+      aux := a;
+      if a^.hi = NIL then
+        a := a^.hd
+      else if a^.hd = NIL then
+        a := a^.hi
+      else
+      begin
+        aux := a^.hi;
+        while aux^.hd <> NIL do
+        begin
+          ant := aux;
+          aux := aux^.hd;
+        end;
+        if a^.hi = aux then
+          a^.hi := aux^.hi
+        else
+          ant^.hd := NIL;
+        a^.info := aux^.info;
+      end;
+      dispose(aux);
     end;
 end;
 
@@ -204,7 +179,7 @@ begin
   end;
 end;
 
-function node_count(a:tBinarySearchTree): integer;
+function node_count(a:tbinarySearchTree): integer;
 begin
      if a = nil then
         node_count:= 0
@@ -217,45 +192,7 @@ begin
      if a = nil then
         mismos_nodos_izq_y_der:= False
      else
-        mismos_nodos_izq_y_der:=  node_count(a^.hi) = node_count(a^.hd);
-end;
-function niveles_completos(a:tBinarySearchTree):boolean;
-begin
-     if a = nil then
-        niveles_completos:= True
-     else
      begin
-          if (a^.hi <> nil) and (a^.hd <> nil) then
-             niveles_completos:= niveles_completos(a^.hi) and niveles_completos(a^.hd)
-          else if (a^.hi = nil) and (a^.hi = nil) then
-               niveles_completos:= True
-          else
-              niveles_completos:= False;
+          mismos_nodos_izq_y_der:=  node_count(a^.hi) = node_count(a^.hd);
      end;
-end;
-
-procedure add_tree(var a:tBinarySearchTree; b:tBinarySearchTree);
-begin
-     if b <> nil then
-     begin
-          add(a,b^.info);
-          add_tree(a,b^.hi);
-          add_tree(a,b^.hd);
-     end;
-end;
-
-function get_multiplicidad(a:tBinarySearchTree; clave: integer):integer;
-begin
-     if a = nil then
-        get_multiplicidad:= 0
-     else
-     begin
-          if a^.info = clave then
-             get_multiplicidad:= a^.multiplicidad
-          else
-              get_multiplicidad:= get_multiplicidad(a^.hi,clave) + get_multiplicidad(a^.hd,clave);
-     end;
-
-end;
-
 end.

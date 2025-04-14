@@ -66,7 +66,7 @@ end;
 procedure get(a: tTreeMap; key: integer; var value: tListaSimple);
 begin
      if a = nil then
-        writeln('NO HAY ELEMENTOS')
+        writeln('NO HAY ELEMENTOS');
      else if a^.key = key then
         value:= get_info(a)
      else if key < a^.key then

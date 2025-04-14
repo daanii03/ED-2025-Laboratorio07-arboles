@@ -49,7 +49,6 @@ begin
 end;
 
 begin
-  SetConsoleOutputCP(65001);
   // Crear el árbol
   crear_arbol(a);
 

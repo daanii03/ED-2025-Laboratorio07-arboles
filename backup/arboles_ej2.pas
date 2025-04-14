@@ -43,6 +43,7 @@ begin
     add(b, 1);
     add(b, 13);
     add(b, 16);
+    add(b,17);
 end;
 
 // Test para el ejercicio 2.1
