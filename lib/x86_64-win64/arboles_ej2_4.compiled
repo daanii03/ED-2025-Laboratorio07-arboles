@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CONFIG>
-  <Compiler Value="C:\lazarus\fpc\3.2.2\bin\x86_64-win64\fpc.exe" Date="1513318895"/>
-  <Params Value=" -MObjFPC -Scghi -O1 -gw3 -gl -l -vewnhibq -FuC:\Users\Dani\Desktop\ED-2025-Laboratorio07-arboles\ -FUC:\Users\Dani\Desktop\ED-2025-Laboratorio07-arboles\lib\x86_64-win64\ -FEC:\Users\Dani\Desktop\ED-2025-Laboratorio07-arboles\ -oC:\Users\Dani\Desktop\ED-2025-Laboratorio07-arboles\arboles_ej2_4.exe arboles_ej2_4.pas"/>
-</CONFIG>
